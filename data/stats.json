@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "title": "Yap Index - coming soon",
+  "generatedAt": "2026-07-13T02:10:21.936Z",
+  "methodology": {
+    "tier": "show-level",
+    "word_timestamps": false,
+    "diarization": false,
+    "longest_run_is_estimate": true,
+    "filler_counts_calibrated": false
+  },
+  "shows": [
+    {
+      "show_id": "dwarkesh",
+      "show_name": "Dwarkesh Podcast",
+      "wpm": 213.35,
+      "yap_density": 12801.17,
+      "longest_run_estimate_sec": 15.75,
+      "filler_rate": 0.837,
+      "filler_uncalibrated": true,
+      "totals": {
+        "episodes": 1,
+        "hours": 0.199,
+        "words": 2549
+      },
+      "episodes": [
+        {
+          "episode_id": "the-data-black-hole-at-the-center-of-ai-1c900b5e32",
+          "show_id": "dwarkesh",
+          "title": "The data black hole at the center of AI",
+          "pub_date": "2026-06-19T16:45:03.000Z",
+          "link": "https://www.dwarkesh.com/p/the-sample-efficiency-black-hole",
+          "audio_file": "data/audio-cache/dwarkesh/the-data-black-hole-at-the-center-of-ai-1c900b5e32.mp3",
+          "duration_seconds": 716.841,
+          "duration_minutes": 11.95,
+          "word_count": 2549,
+          "filler_count": 10,
+          "wpm": 213.35,
+          "yap_density": 12801.16,
+          "longest_run_estimate_sec": 15.75,
+          "filler_rate": 0.837,
+          "filler_uncalibrated": true,
+          "overlap_join_warnings": 1,
+          "providers": [
+            "alibaba"
+          ],
+          "models": [
+            "qwen3-asr-flash"
+          ]
+        }
+      ]
+    }
+  ]
+}

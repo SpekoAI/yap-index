@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-13T02:09:07.798Z",
+  "episodes": [
+    {
+      "id": "the-data-black-hole-at-the-center-of-ai-1c900b5e32",
+      "showId": "dwarkesh",
+      "showName": "Dwarkesh Podcast",
+      "title": "The data black hole at the center of AI",
+      "pubDate": "2026-06-19T16:45:03.000Z",
+      "declaredDurationSec": 717,
+      "link": "https://www.dwarkesh.com/p/the-sample-efficiency-black-hole",
+      "audioUrl": "https://api.substack.com/feed/podcast/202734201/6bfb394237f089ea0355b8632dfa3537.mp3",
+      "audioDurationSec": 716.841111,
+      "audioFile": "data/audio-cache/dwarkesh/the-data-black-hole-at-the-center-of-ai-1c900b5e32.mp3"
+    }
+  ]
+}
