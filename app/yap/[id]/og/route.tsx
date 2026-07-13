@@ -50,6 +50,7 @@ export async function GET(
       >
         <div
           style={{
+            display: "flex",
             textTransform: "uppercase",
             letterSpacing: 4,
             fontSize: 24,
@@ -84,6 +85,7 @@ export async function GET(
           </div>
           <div
             style={{
+              display: "flex",
               marginTop: 24,
               fontFamily: "Fraunces, serif",
               fontSize: 44,

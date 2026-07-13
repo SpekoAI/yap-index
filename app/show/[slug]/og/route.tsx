@@ -57,6 +57,7 @@ export async function GET(
         <div style={{ display: "flex", alignItems: "center", gap: 48 }}>
           <div
             style={{
+              display: "flex",
               fontFamily: "Fraunces, serif",
               fontSize: 280,
               fontWeight: 900,
@@ -69,6 +70,7 @@ export async function GET(
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
+                display: "flex",
                 fontFamily: "Fraunces, serif",
                 fontSize: 64,
                 fontWeight: 900,
@@ -77,7 +79,7 @@ export async function GET(
             >
               {show.show_name}
             </div>
-            <div style={{ marginTop: 18, fontSize: 36, color: OG_COLORS.soft }}>
+            <div style={{ display: "flex", marginTop: 18, fontSize: 36, color: OG_COLORS.soft }}>
               {show.wpm.toFixed(0)} words per minute
             </div>
           </div>
