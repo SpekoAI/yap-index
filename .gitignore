@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.env*
+!.env.example
+.vercel/
+*.log
+*.tsbuildinfo
+.DS_Store
+.firecrawl/
+.bun-cache/
+.tmp/
+data/audio-cache/
+data/transcripts/
