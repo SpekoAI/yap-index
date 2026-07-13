@@ -1,3 +1,105 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --paper: oklch(0.97 0.015 90);
+  --ink: oklch(0.24 0.02 60);
+  --press: oklch(0.55 0.22 25);
+  --rule: oklch(0.88 0.02 85);
+  --tan: oklch(0.93 0.03 85);
+  --ink-soft: oklch(0.42 0.02 60);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: oklch(0.2 0.015 60);
+    --ink: oklch(0.93 0.01 85);
+    --press: oklch(0.68 0.19 28);
+    --rule: oklch(0.32 0.02 60);
+    --tan: oklch(0.26 0.02 60);
+    --ink-soft: oklch(0.72 0.015 75);
+  }
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--press);
+  color: var(--paper);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Classic newspaper double rule */
+.double-rule {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 6px;
+}
+
+/* Press sticker chip */
+.sticker {
+  display: inline-block;
+  border: 1.5px solid var(--press);
+  color: var(--press);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+}
+
+.sticker-alt {
+  transform: rotate(1.2deg);
+}
+
+/* Staggered row reveal */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
+
+/* Live recording pulse for the mic dot */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.rec-dot {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-dot {
+    animation: none;
+  }
+}

@@ -1,0 +1,126 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+export type EpisodeStats = {
+  episode_id: string;
+  show_id: string;
+  title: string;
+  pub_date: string;
+  link: string | null;
+  duration_seconds: number;
+  duration_minutes: number;
+  word_count: number;
+  filler_count: number;
+  wpm: number;
+  yap_density: number;
+  longest_run_estimate_sec: number;
+  filler_rate: number;
+};
+
+export type ShowStats = {
+  show_id: string;
+  show_name: string;
+  wpm: number;
+  yap_density: number;
+  longest_run_estimate_sec: number;
+  filler_rate: number;
+  totals: {
+    episodes: number;
+    hours: number;
+    words: number;
+  };
+  episodes: EpisodeStats[];
+};
+
+export type StatsFile = {
+  schema_version: number;
+  generatedAt: string;
+  methodology: {
+    tier: string;
+    word_timestamps: boolean;
+    diarization: boolean;
+    longest_run_is_estimate: boolean;
+    filler_counts_calibrated: boolean;
+  };
+  shows: ShowStats[];
+};
+
+export type SortKey = "wpm" | "density" | "run" | "fillers" | "hours";
+
+export const SORT_KEYS: readonly SortKey[] = [
+  "wpm",
+  "density",
+  "run",
+  "fillers",
+  "hours",
+];
+
+export function sortValue(show: ShowStats, key: SortKey): number {
+  switch (key) {
+    case "wpm":
+      return show.wpm;
+    case "density":
+      return show.yap_density;
+    case "run":
+      return show.longest_run_estimate_sec;
+    case "fillers":
+      return show.filler_rate;
+    case "hours":
+      return show.totals.hours;
+  }
+}
+
+export async function readStats(): Promise<StatsFile> {
+  const contents = await readFile(
+    path.join(process.cwd(), "data", "stats.json"),
+    "utf8",
+  );
+  return JSON.parse(contents) as StatsFile;
+}
+
+export function rankedShows(stats: StatsFile, key: SortKey): ShowStats[] {
+  return [...stats.shows].sort((a, b) => sortValue(b, key) - sortValue(a, key));
+}
+
+export type Superlatives = {
+  fastestMouth: string | null;
+  marathonMonologue: string | null;
+  densestYap: string | null;
+};
+
+export function superlatives(stats: StatsFile): Superlatives {
+  if (stats.shows.length === 0) {
+    return { fastestMouth: null, marathonMonologue: null, densestYap: null };
+  }
+  const byWpm = rankedShows(stats, "wpm");
+  const byRun = rankedShows(stats, "run");
+  const byDensity = rankedShows(stats, "density");
+  return {
+    fastestMouth: byWpm[0]?.show_id ?? null,
+    marathonMonologue: byRun[0]?.show_id ?? null,
+    densestYap: byDensity[0]?.show_id ?? null,
+  };
+}
+
+export function totalHours(stats: StatsFile): number {
+  return (
+    Math.round(
+      stats.shows.reduce((sum, show) => sum + show.totals.hours, 0) * 10,
+    ) / 10
+  );
+}
+
+export function findShow(stats: StatsFile, slug: string): ShowStats | null {
+  return stats.shows.find((show) => show.show_id === slug) ?? null;
+}
+
+/** Rank of a show under a metric, 1-based. */
+export function rankOf(stats: StatsFile, slug: string, key: SortKey): number {
+  const ranked = rankedShows(stats, key);
+  return ranked.findIndex((show) => show.show_id === slug) + 1;
+}
+
+/** How many shows a given wpm beats. */
+export function showsOutYapped(stats: StatsFile, wpm: number): number {
+  return stats.shows.filter((show) => show.wpm < wpm).length;
+}
