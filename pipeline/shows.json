@@ -1,0 +1,52 @@
+[
+  {
+    "id": "all-in",
+    "name": "All-In Podcast",
+    "rssUrl": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml"
+  },
+  {
+    "id": "lex-fridman",
+    "name": "Lex Fridman Podcast",
+    "rssUrl": "https://lexfridman.com/feed/podcast/"
+  },
+  {
+    "id": "acquired",
+    "name": "Acquired",
+    "rssUrl": "https://feeds.transistor.fm/acquired"
+  },
+  {
+    "id": "my-first-million",
+    "name": "My First Million",
+    "rssUrl": "https://feeds.megaphone.fm/HS2300184645"
+  },
+  {
+    "id": "lennys-podcast",
+    "name": "Lenny's Podcast",
+    "rssUrl": "https://api.substack.com/feed/podcast/10845.rss"
+  },
+  {
+    "id": "dwarkesh",
+    "name": "Dwarkesh Podcast",
+    "rssUrl": "https://apple.dwarkesh-podcast.workers.dev/feed.rss"
+  },
+  {
+    "id": "latent-space",
+    "name": "Latent Space",
+    "rssUrl": "https://api.substack.com/feed/podcast/1084089.rss"
+  },
+  {
+    "id": "a16z",
+    "name": "a16z Podcast",
+    "rssUrl": "https://feeds.simplecast.com/JGE3yC0V"
+  },
+  {
+    "id": "this-week-in-startups",
+    "name": "This Week in Startups",
+    "rssUrl": "https://rss.libsyn.com/shows/624860/destinations/5500155.xml"
+  },
+  {
+    "id": "pivot",
+    "name": "Pivot",
+    "rssUrl": "https://feeds.megaphone.fm/pivot"
+  }
+]
