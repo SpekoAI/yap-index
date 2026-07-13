@@ -1,0 +1,6 @@
+data/audio-cache/
+data/transcripts/
+node_modules/
+.next/
+.tmp/
+.bun-cache/
