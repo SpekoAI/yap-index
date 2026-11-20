@@ -22,7 +22,7 @@ const FAVICON = `data:image/svg+xml,${encodeURIComponent(
 )}`;
 
 const SPEKO_URL =
-  "https://speko.ai?utm_source=yap-index&utm_medium=viral&utm_campaign=viral-3x";
+  "https://speko.com?utm_source=yap-index&utm_medium=viral&utm_campaign=viral-3x";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yap-index.speko.dev"),
